@@ -14,7 +14,7 @@ public class FamilyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_family);
+        setContentView(R.layout.word_list);
 
         ArrayList<Word> words= new ArrayList<Word>();
         Word word;
@@ -32,7 +32,7 @@ public class FamilyActivity extends AppCompatActivity {
 
 
         WordAdapter itemsAdapter = new WordAdapter(this, words);
-        ListView list = (ListView) findViewById(R.id.list_family);
+        ListView list = (ListView) findViewById(R.id.word_list);
         list.setAdapter(itemsAdapter);
     }
 }
