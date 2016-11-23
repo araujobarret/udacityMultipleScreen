@@ -11,11 +11,11 @@
         android:id="@+id/english_word"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="lutti"/>
+        tools:text="deafault"/>
     <TextView
         android:id="@+id/miwok_word"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="one"/>
+        tools:text="translated"/>
 
 </LinearLayout>

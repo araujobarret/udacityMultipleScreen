@@ -4,7 +4,7 @@ package model;
  * Created by root on 17/11/16.
  */
 
-public class Word {
+public class Word  {
     String defaultTranslation, miwokTranslation;
 
     public Word(String defaultTranslation, String miwokTranslation){

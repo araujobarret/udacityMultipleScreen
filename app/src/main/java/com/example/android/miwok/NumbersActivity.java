@@ -32,6 +32,7 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("ten", "na'aacha"));
 
 
+
         WordAdapter itemsAdapter = new WordAdapter(this, words);
         ListView list = (ListView) findViewById(R.id.list);
         list.setAdapter(itemsAdapter);
