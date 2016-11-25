@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.miwok.R;
@@ -29,9 +30,18 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         TextView tvDefault = (TextView) convertView.findViewById(R.id.english_word);
         TextView tvMiwok = (TextView) convertView.findViewById(R.id.miwok_word);
+        ImageView tvImage = (ImageView) convertView.findViewById(R.id.image_word);
 
         tvDefault.setText(word.getDefaultTranslation());
         tvMiwok.setText(word.getMiwokTranslation());
+
+        if(word.hasImage()){
+            tvImage.setImageResource(word.getmImageResourceId());
+            tvImage.setVisibility(View.VISIBLE);
+        }
+        else
+            tvImage.setVisibility(View.GONE);
+
 
         return convertView;
 
