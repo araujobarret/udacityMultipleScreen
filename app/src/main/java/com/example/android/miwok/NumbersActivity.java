@@ -1,15 +1,21 @@
 package com.example.android.miwok;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import model.Word;
 import model.WordAdapter;
 
 
 public class NumbersActivity extends AppCompatActivity {
+    private MediaPlayer mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +25,7 @@ public class NumbersActivity extends AppCompatActivity {
         ArrayList<Word> words= new ArrayList<Word>();
         Word word;
 
-        words.add(new Word("one", "lutti", R.drawable.number_one));
+        words.add(new Word("one", "lutti", R.drawable.number_one, R.raw.number_one));
         words.add(new Word("two", "otiiko", R.drawable.number_two));
         words.add(new Word("three", "tolookosu", R.drawable.number_three));
         words.add(new Word("four", "oyyisa", R.drawable.number_four));
@@ -30,19 +36,18 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("nine", "wo'e", R.drawable.number_nine));
         words.add(new Word("ten", "na'aacha", R.drawable.number_ten));
 
-
-
         WordAdapter itemsAdapter = new WordAdapter(this, words, R.color.category_numbers);
         ListView list = (ListView) findViewById(R.id.word_list);
         list.setAdapter(itemsAdapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_one);
+                mMediaPlayer.start();
+            }
+        });
+
     }
 
-    @Override
-    public boolean onKeyDown(int keycode, KeyEvent event) {
-        if(keycode == KeyEvent.KEYCODE_BACK) {
-            this.finish();
-        }
-
-        return super.onKeyDown(keycode, event);
-    }
 }

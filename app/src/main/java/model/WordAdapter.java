@@ -1,6 +1,7 @@
 package model;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
 
 import com.example.android.miwok.R;
@@ -22,6 +24,8 @@ import static android.R.attr.gravity;
 
 public class WordAdapter extends ArrayAdapter<Word> {
     private int colorId;
+    private MediaPlayer mediaPlayer;
+
     public WordAdapter(Context context, ArrayList<Word> words, int colorId){
         super(context, 0, words);
         this.colorId = colorId;
@@ -31,9 +35,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
     public View getView(int position, View convertView, ViewGroup parent) {
         Word word = getItem(position);
         int color = ContextCompat.getColor(getContext(), colorId);
+
         if(convertView == null)
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
-
 
         View container = convertView.findViewById(R.id.text_container);
         TextView tvDefault = (TextView) convertView.findViewById(R.id.english_word);
@@ -52,7 +56,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
         else
             tvImage.setVisibility(View.GONE);
-
 
         return convertView;
 
