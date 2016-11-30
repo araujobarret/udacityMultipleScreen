@@ -85,6 +85,8 @@ public class ColorsActivity extends AppCompatActivity {
                 }
             }
         });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /**

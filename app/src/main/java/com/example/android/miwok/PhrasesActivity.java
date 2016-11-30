@@ -85,6 +85,7 @@ public class PhrasesActivity extends AppCompatActivity {
                 }
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /**

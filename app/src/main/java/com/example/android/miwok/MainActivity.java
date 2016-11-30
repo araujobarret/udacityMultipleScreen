@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         TextView colors = (TextView) findViewById(R.id.colors);
         TextView family = (TextView) findViewById(R.id.family);
         TextView phrases = (TextView) findViewById(R.id.phrases);
+
         numbers.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -72,11 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-
     }
 
-    public void openNumbersList(View view) {
-        Intent intent = new Intent(this, NumbersActivity.class);
-        startActivity(intent);
-    }
 }

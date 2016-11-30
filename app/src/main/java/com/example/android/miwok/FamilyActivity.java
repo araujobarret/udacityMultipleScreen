@@ -87,6 +87,7 @@ public class FamilyActivity extends AppCompatActivity {
                 }
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /**

@@ -3,10 +3,12 @@ package com.example.android.miwok;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -15,6 +17,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import model.Word;
 import model.WordAdapter;
+
+import static android.support.v7.widget.AppCompatDrawableManager.get;
 
 
 public class NumbersActivity extends AppCompatActivity {
@@ -87,6 +91,8 @@ public class NumbersActivity extends AppCompatActivity {
                 }
             }
         });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /**
@@ -110,5 +116,15 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         Log.v("NumbersActivity", "paused");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
