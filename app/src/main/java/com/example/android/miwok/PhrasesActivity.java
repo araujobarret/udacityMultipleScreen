@@ -99,6 +99,7 @@ public class PhrasesActivity extends AppCompatActivity {
         }
     }
 
+    // Destrutor
     @Override
     protected void onDestroy() {
         super.onDestroy();
